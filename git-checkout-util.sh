@@ -14,4 +14,6 @@ if [ -n "$bamboo_build_working_directory" ]; then
 	git checkout $bamboo_planRepository_branchName
 	git checkout $bamboo_planRepository_revision
 	cd -
+else 
+	(>&2 echo "The bamboo_build_working_directory variable was not found")
 fi
