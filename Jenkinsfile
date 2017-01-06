@@ -6,15 +6,19 @@ def printParams(def params) {
 }
 
 node {
-properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '7')), parameters([booleanParam(defaultValue: true, description: '', name: 'dryRun')],[booleanParam(defaultValue: true, description: '', name: 'dryRun2')]), pipelineTriggers([])])
-//	properties([[
-//		$class: 'ParametersDefinitionProperty', 
-//		parameterDefinitions: [[
-//			$class: 'BooleanParameterDefinition', 
-//			defaultValue: true, 
-//			description: 'Some Description', 
-//			name : 'dryRun'
-//		]]]])
+//properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '7')), parameters([booleanParam(defaultValue: true, description: '', name: 'dryRun')],[booleanParam(defaultValue: true, description: '', name: 'dryRun2')]), pipelineTriggers([])])
+	properties([[
+		$class: 'ParametersDefinitionProperty', 
+		parameterDefinitions: [
+		[	$class: 'BooleanParameterDefinition', 
+			defaultValue: true, 
+			description: 'Some Description', 
+			name : 'dryRun'],
+		[	$class: 'BooleanParameterDefinition', 
+			defaultValue: false, 
+			description: 'Some Description', 
+			name : 'dryRun2']				       
+		]]])
 	//sh 'env > env.txt'
     //printParams(readFile('env.txt').split("\r?\n"))
     stage('Preparation') { // for display purposes
