@@ -6,7 +6,21 @@ def printParams(def params) {
 }
 
 node {
-    sh 'env > env.txt'
+	properties([[
+		$class: 'ParametersDefinitionProperty', 
+		parameterDefinitions: [
+			[
+				$class: 'StringParameterDefinition', 
+				defaultValue: '', 
+				description: 'Some Description', 
+				name : 'MY_PARAM'], 
+			[
+				$class: 'StringParameterDefinition', 
+				defaultValue: '', 
+				description: 'Some Description', 
+				name: 'MY_PARAM2']
+		]]])
+	sh 'env > env.txt'
     printParams(readFile('env.txt').split("\r?\n"))
     stage('Preparation') { // for display purposes
         if (dryRun == "false") {
