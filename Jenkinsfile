@@ -1,3 +1,5 @@
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '7')), parameters([booleanParam(defaultValue: true, description: '', name: 'dryRun')]), pipelineTriggers([])])
+
 @NonCPS
 def printParams(def params) {
     for (String value : params) {
@@ -6,14 +8,14 @@ def printParams(def params) {
 }
 
 node {
-	properties([[
-		$class: 'ParametersDefinitionProperty', 
-		parameterDefinitions: [[
-			$class: 'BooleanParameterDefinition', 
-			defaultValue: true, 
-			description: 'Some Description', 
-			name : 'dryRun'
-		]]]])
+//	properties([[
+//		$class: 'ParametersDefinitionProperty', 
+//		parameterDefinitions: [[
+//			$class: 'BooleanParameterDefinition', 
+//			defaultValue: true, 
+//			description: 'Some Description', 
+//			name : 'dryRun'
+//		]]]])
 	//sh 'env > env.txt'
     //printParams(readFile('env.txt').split("\r?\n"))
     stage('Preparation') { // for display purposes
