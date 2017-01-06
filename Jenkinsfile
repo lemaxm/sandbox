@@ -14,8 +14,8 @@ node {
 			description: 'Some Description', 
 			name : 'dryRun'
 		]]]])
-	sh 'env > env.txt'
-    printParams(readFile('env.txt').split("\r?\n"))
+	//sh 'env > env.txt'
+    //printParams(readFile('env.txt').split("\r?\n"))
     stage('Preparation') { // for display purposes
         if (dryRun == "false") {
             println "Checking out..."
