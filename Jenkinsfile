@@ -1,5 +1,3 @@
-properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '7')), parameters([booleanParam(defaultValue: true, description: '', name: 'dryRun')],[booleanParam(defaultValue: true, description: '', name: 'dryRun2')]), pipelineTriggers([])])
-
 @NonCPS
 def printParams(def params) {
     for (String value : params) {
@@ -8,6 +6,7 @@ def printParams(def params) {
 }
 
 node {
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '7')), parameters([booleanParam(defaultValue: true, description: '', name: 'dryRun')],[booleanParam(defaultValue: true, description: '', name: 'dryRun2')]), pipelineTriggers([])])
 //	properties([[
 //		$class: 'ParametersDefinitionProperty', 
 //		parameterDefinitions: [[
