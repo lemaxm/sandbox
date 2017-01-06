@@ -1,4 +1,4 @@
-properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '7')), parameters([booleanParam(defaultValue: true, description: '', name: 'dryRun')]), pipelineTriggers([])])
+properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '7', numToKeepStr: '7')), parameters([booleanParam(defaultValue: true, description: '', name: 'dryRun')],[booleanParam(defaultValue: true, description: '', name: 'dryRun2')]), pipelineTriggers([])])
 
 @NonCPS
 def printParams(def params) {
@@ -34,4 +34,5 @@ node {
             println 'sh "./gradlew versions"'
         }
     }
+	println "Here is $dryRun2"
 }
