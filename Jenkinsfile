@@ -17,7 +17,11 @@ node {
 		[	$class: 'BooleanParameterDefinition', 
 			defaultValue: false, 
 			description: 'Some Description', 
-			name : 'dryRun2']				       
+			name : 'dryRun2'],
+		[	$class: 'BooleanParameterDefinition', 
+			defaultValue: false, 
+			description: 'Some Description', 
+			name : 'dryRun3']				       
 		]]])
 	//sh 'env > env.txt'
     //printParams(readFile('env.txt').split("\r?\n"))
@@ -38,4 +42,5 @@ node {
         }
     }
 	println "Here is $dryRun2"
+	println "Here is dryRun 3 $dryRun3"
 }
